@@ -221,6 +221,9 @@ export class LightCard extends LitElement implements LovelaceCard {
         return [
             cardStyle,
             css`
+                ha-card {
+                    border-radius: 20px;
+                }
                 mushroom-state-item {
                     cursor: pointer;
                 }
