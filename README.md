@@ -5,7 +5,7 @@
 ![downloads][downloads-badge]
 ![build][build-badge]
 
-> Mushroom is currently in `beta` and not released yet. There can be some breaking changes.
+<a href="https://www.buymeacoffee.com/piitaya" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/white_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ![Overview](https://user-images.githubusercontent.com/5878303/152332130-760cf616-5c40-4825-a482-bb8f1f0f5251.png)
 
@@ -24,7 +24,7 @@ Mushroom mission is to propose easy to use components to build your [Home Assist
 -   🌈 Based on Material UI colors
 -   🌓 Light and dark theme support
 -   🎨 Optional theme customization
--   🌎 Internationalization 
+-   🌎 Internationalization
 
 The goal of Mushroom is not to provide custom card for deep customization. You can use the excellent [UI Lovelace Minimalist][ui-lovelace-minimalist] and [Button card][button-card] plugins for this.
 
@@ -74,6 +74,7 @@ Different cards are available for differents entities :
 -   🙋 [Person card](docs/cards/person.md)
 -   🛠 [Template card](docs/cards/template.md)
 -   🔔 [Chips card](docs/cards/chips.md)
+-   ✏️ [Title card](docs/cards/title.md)
 
 Some cards are on the todo list :
 
@@ -83,42 +84,7 @@ Some cards are on the todo list :
 
 ### Theme customization
 
-Mushroom works without theme but you can add a theme for better experience by copiing the theme file [themes/mushroom.yaml](themes/mushroom.yaml) in your theme folder.
-If you want more information about themes, check out the official [Home Assistant documentation about themes][home-assitant-theme-docs].
-
-```yaml
-Mushroom:
-    # HA variables
-    ha-card-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.16)
-    ha-card-border-radius: 12px
-    # Mushroom custom variables
-    mush-spacing: 12px
-    mush-rgb-red: 244, 67, 54
-    mush-rgb-pink: 233, 30, 99
-    mush-rgb-purple: 156, 39, 176
-    mush-rgb-deep-purple: 103, 58, 183
-    mush-rgb-indigo: 63, 81, 181
-    mush-rgb-blue: 33, 150, 243
-    mush-rgb-light-blue: 3, 169, 244
-    mush-rgb-cyan: 0, 188, 212
-    mush-rgb-teal: 0, 150, 136
-    mush-rgb-green: 76, 175, 80
-    mush-rgb-light-green: 139, 195, 74
-    mush-rgb-lime: 205, 220, 57
-    mush-rgb-yellow: 255, 235, 59
-    mush-rgb-amber: 255, 193, 7
-    mush-rgb-orange: 255, 152, 0
-    mush-rgb-deep-orange: 255, 87, 34
-    mush-rgb-brown: 121, 85, 72
-    mush-rgb-grey: 158, 158, 158
-    mush-rgb-blue-grey: 96, 125, 139
-    mush-rgb-black: 0, 0, 0
-    mush-rgb-white: 255, 255, 255
-    # You must keep this to support light/dark theme
-    modes:
-        light: {}
-        dark: {}
-```
+Mushroom works without theme but you can add a theme for better experience by installing the [Mushroom Themes](https://github.com/piitaya/lovelace-mushroom-themes). If you want more information about themes, check out the official [Home Assistant documentation about themes][home-assitant-theme-docs].
 
 ## Development server
 
@@ -183,4 +149,3 @@ The design is inspired by [7ahang’s work][7ahang] on Behance and [Ui Lovelace 
 [button-card]: https://github.com/custom-cards/button-card
 [7ahang]: https://www.behance.net/gallery/88433905/Redesign-Smart-Home
 [release-url]: https://github.com/piitaya/lovelace-mushroom/releases
-

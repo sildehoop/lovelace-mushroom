@@ -1,13 +1,5 @@
 import { ActionConfig, LovelaceCardConfig } from "custom-card-helpers";
-import {
-    array,
-    assign,
-    boolean,
-    object,
-    optional,
-    string,
-    union,
-} from "superstruct";
+import { array, assign, boolean, object, optional, string, union } from "superstruct";
 import { actionConfigStruct } from "../../utils/action-struct";
 import { baseLovelaceCardConfig } from "../../utils/editor-styles";
 
@@ -16,6 +8,7 @@ export interface TemplateCardConfig extends LovelaceCardConfig {
     icon_color?: string;
     primary?: string;
     secondary?: string;
+    multiline_secondary?: boolean;
     vertical?: boolean;
     tap_action?: ActionConfig;
     hold_action?: ActionConfig;
@@ -29,6 +22,7 @@ export const templateCardConfigStruct = assign(
         icon_color: optional(string()),
         primary: optional(string()),
         secondary: optional(string()),
+        multiline_secondary: optional(boolean()),
         vertical: optional(boolean()),
         tap_action: optional(actionConfigStruct),
         hold_action: optional(actionConfigStruct),

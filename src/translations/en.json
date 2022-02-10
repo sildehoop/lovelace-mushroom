@@ -3,16 +3,21 @@
         "card": {
             "generic": {
                 "vertical": "Vertical?",
+                "multiline_secondary": "Multiline secondary?",
                 "hide_state": "Hide state?",
                 "state": "State",
                 "icon_color": "Icon color",
+                "hide_icon": "Hide icon?",
                 "color_values": {
                     "default": "Default color"
                 }
             },
             "light": {
                 "show_brightness_control": "Brightness control?",
-                "show_color_temp_control": "Temperature color control?"
+                "use_light_color": "Colorize icon and slider",
+                "show_color_temp_control": "Temperature color control?",
+                "show_color_control": "Color control?",
+                "incompatible_controls": "Some controls may not be displayed if your light does not support the feature."
             },
             "fan": {
                 "animate_icon_active": "Animate icon when active?",
@@ -24,7 +29,8 @@
                 "show_position_control": "Position control?"
             },
             "person": {
-                "use_entity_picture": "Use entity picture?"
+                "use_entity_picture": "Use entity picture?",
+                "hide_name": "Hide name"
             },
             "alarm_control_panel": {
                 "displayed_states": "Displayed states"
@@ -44,6 +50,10 @@
             "template": {
                 "primary": "Primary information",
                 "secondary": "Secondary information"
+            },
+            "title": {
+                "title": "Title",
+                "subtitle": "Subtitle"
             }
         },
         "chip": {

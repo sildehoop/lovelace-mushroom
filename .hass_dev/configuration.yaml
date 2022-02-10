@@ -40,11 +40,21 @@ weather:
 fan:
   - platform: demo
 
+lock:
+  - platform: demo
+  
 person:
   - name: Anne Therese
     id: anne_therese
     device_trackers:
       - device_tracker.demo_anne_therese
+
+zone:
+  - name: Office
+    latitude: 52.37451608362128
+    longitude: 4.888106097860146
+    radius: 50
+    icon: mdi:office-building
 
 vacuum:
   - platform: demo
@@ -64,13 +74,29 @@ alarm_control_panel:
     name: Alarm panel text code
     code: azerty
     arming_time: 5
-
-group:
-  alarm_group:
-    name: Alarm control panel group
-    entities:
-      - alarm_control_panel.alarm_panel_1
-      - alarm_control_panel.alarm_panel_2
+  - platform: template
+    panels:
+      templated_alarm_panel:
+        value_template: "{{ states('alarm_control_panel.alarm_panel_1') }}"
+        code_format: no_code
+        arm_away:
+          service: alarm_control_panel.alarm_arm_away
+          target:
+            entity_id:
+              - alarm_control_panel.alarm_panel_1
+              - alarm_control_panel.alarm_panel_2
+        arm_home:
+          service: alarm_control_panel.alarm_arm_home
+          target:
+            entity_id:
+              - alarm_control_panel.alarm_panel_1
+              - alarm_control_panel.alarm_panel_2
+        disarm:
+          service: alarm_control_panel.alarm_arm_home
+          target:
+            entity_id:
+              - alarm_control_panel.alarm_panel_1
+              - alarm_control_panel.alarm_panel_2
 
 lovelace: !include ui-lovelace.yaml
 

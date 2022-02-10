@@ -3,16 +3,21 @@
         "card": {
             "generic": {
                 "vertical": "Vertical ?",
+                "multiline_secondary": "Information secondaire sur plusieurs lignes?",
                 "hide_state": "Cacher l'état ?",
                 "state": "État",
                 "icon_color": "Couleur de l'icône",
+                "hide_icon": "Cacher l'icône ?",
                 "color_values": {
                     "default": "Couleur par défaut"
                 }
             },
             "light": {
                 "show_brightness_control": "Contrôle de luminosité ?",
-                "show_color_temp_control": "Contrôle de la température ?"
+                "use_light_color": "Colorer l'icône et le variateur",
+                "show_color_temp_control": "Contrôle de la température ?",
+                "show_color_control": "Contrôle de la couleur ?",
+                "incompatible_controls": "Certains contrôles peuvent ne pas être affichés si votre lumière ne supporte pas la fonctionnalité."
             },
             "fan": {
                 "animate_icon_active": "Animation de l'icône ?",
@@ -24,7 +29,8 @@
                 "show_position_control": "Contrôle de la position ?"
             },
             "person": {
-                "use_entity_picture": "Utiliser l'image de l'entité ?"
+                "use_entity_picture": "Utiliser l'image de l'entité ?",
+                "hide_name": "Cacher le nom ?"
             },
             "alarm_control_panel": {
                 "displayed_states": "États affichés"
@@ -44,6 +50,10 @@
             "template": {
                 "primary": "Information principale",
                 "secondary": "Information secondaire"
+            },
+            "title": {
+                "title": "Titre",
+                "subtitle": "Sous-titre"
             }
         },
         "chip": {
