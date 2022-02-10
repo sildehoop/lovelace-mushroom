@@ -11,7 +11,7 @@ const dev = process.env.ROLLUP_WATCH;
 const serveOptions = {
     contentBase: ["./dist"],
     host: "0.0.0.0",
-    port: 5000,
+    port: 5555,
     allowCrossOrigin: true,
     headers: {
         "Access-Control-Allow-Origin": "*",
