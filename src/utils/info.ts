@@ -1,31 +1,11 @@
 import { HomeAssistant } from "custom-card-helpers";
 import { HassEntity } from "home-assistant-js-websocket";
 import { html } from "lit";
-import { Info } from "./entity-card-config";
+import { isAvailable } from "./entity";
 
-export function isActive(entity: HassEntity) {
-    const domain = entity.entity_id.split(".")[0];
-    const state = entity.state;
-    if (state === "unavailable" || state === "unknown" || state === "off")
-        return false;
+export const INFOS = ["name", "state", "last-changed", "last-updated", "none"] as const;
 
-    // Custom cases
-    switch (domain) {
-        case "cover":
-            return state === "open" || state === "opening";
-        case "device_tracker":
-        case "person":
-            return state === "home";
-        case "vacuum":
-            return state !== "docked";
-        default:
-            return true;
-    }
-}
-
-export function isAvailable(entity: HassEntity) {
-    return entity.state !== "unavailable" && entity.state !== "unknown";
-}
+export type Info = typeof INFOS[number];
 
 export function getInfo(
     info: Info,
@@ -38,7 +18,19 @@ export function getInfo(
         case "name":
             return name;
         case "state":
-            return state;
+            const domain = entity.entity_id.split(".")[0];
+            if (
+                (entity.attributes.device_class === "timestamp" || domain === "scene") &&
+                isAvailable(entity) == true
+            ) {
+                return html` <ha-relative-time
+                    .hass=${hass}
+                    .datetime=${entity.state}
+                    capitalize
+                ></ha-relative-time>`;
+            } else {
+                return state;
+            }
         case "last-changed":
             return html`
                 <ha-relative-time

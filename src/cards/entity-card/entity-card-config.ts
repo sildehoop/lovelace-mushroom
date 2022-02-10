@@ -2,22 +2,14 @@ import { ActionConfig, LovelaceCardConfig } from "custom-card-helpers";
 import { assign, boolean, enums, object, optional, string } from "superstruct";
 import { actionConfigStruct } from "../../utils/action-struct";
 import { baseLovelaceCardConfig } from "../../utils/editor-styles";
-
-export const INFOS = [
-    "name",
-    "state",
-    "last-changed",
-    "last-updated",
-    "none",
-] as const;
-
-export type Info = typeof INFOS[number];
+import { Info, INFOS } from "../../utils/info";
 
 export interface EntityCardConfig extends LovelaceCardConfig {
     entity?: string;
     icon?: string;
     name?: string;
     icon_color?: string;
+    hide_icon?: boolean;
     vertical?: boolean;
     primary_info?: Info;
     secondary_info?: Info;
@@ -32,6 +24,7 @@ export const entityCardConfigStruct = assign(
         icon: optional(string()),
         name: optional(string()),
         icon_color: optional(string()),
+        hide_icon: optional(boolean()),
         vertical: optional(boolean()),
         primary_info: optional(enums(INFOS)),
         secondary_info: optional(enums(INFOS)),

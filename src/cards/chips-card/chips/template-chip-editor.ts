@@ -1,7 +1,7 @@
 import { fireEvent, HomeAssistant } from "custom-card-helpers";
 import { CSSResultGroup, html, LitElement, TemplateResult } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import setupCustomLocalize from "../../../localize";
+import setupCustomlocalize from "../../../localize";
 import { configElementStyle } from "../../../utils/editor-styles";
 import { TemplateChipConfig } from "../../../utils/lovelace/chip/types";
 import { EditorTarget } from "../../../utils/lovelace/editor/types";
@@ -25,14 +25,12 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
             return html``;
         }
 
-        const customLocalize = setupCustomLocalize(this.hass);
+        const customLocalize = setupCustomlocalize(this.hass);
 
         return html`
             <div class="card-config">
                 <paper-textarea
-                    .label="${customLocalize(
-                        "editor.chip.template.content"
-                    )} (${this.hass.localize(
+                    .label="${customLocalize("editor.chip.template.content")} (${this.hass.localize(
                         "ui.panel.lovelace.editor.card.config.optional"
                     )})"
                     .value=${this._config.content}
@@ -46,9 +44,7 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
                 <paper-textarea
                     .label="${this.hass.localize(
                         "ui.panel.lovelace.editor.card.generic.icon"
-                    )} (${this.hass.localize(
-                        "ui.panel.lovelace.editor.card.config.optional"
-                    )})"
+                    )} (${this.hass.localize("ui.panel.lovelace.editor.card.config.optional")})"
                     .value=${this._config.icon}
                     .configValue=${"icon"}
                     @keydown=${this._ignoreKeydown}
@@ -60,9 +56,7 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
                 <paper-textarea
                     .label="${customLocalize(
                         "editor.card.generic.icon_color"
-                    )} (${this.hass.localize(
-                        "ui.panel.lovelace.editor.card.config.optional"
-                    )})"
+                    )} (${this.hass.localize("ui.panel.lovelace.editor.card.config.optional")})"
                     .value=${this._config.icon_color}
                     .configValue=${"icon_color"}
                     @keydown=${this._ignoreKeydown}
@@ -75,9 +69,7 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
                     <hui-action-editor
                         .label="${this.hass.localize(
                             "ui.panel.lovelace.editor.card.generic.tap_action"
-                        )} (${this.hass.localize(
-                            "ui.panel.lovelace.editor.card.config.optional"
-                        )})"
+                        )} (${this.hass.localize("ui.panel.lovelace.editor.card.config.optional")})"
                         .hass=${this.hass}
                         .config=${this._config.tap_action}
                         .actions=${actions}
@@ -90,9 +82,7 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
                     <hui-action-editor
                         .label="${this.hass.localize(
                             "ui.panel.lovelace.editor.card.generic.hold_action"
-                        )} (${this.hass.localize(
-                            "ui.panel.lovelace.editor.card.config.optional"
-                        )})"
+                        )} (${this.hass.localize("ui.panel.lovelace.editor.card.config.optional")})"
                         .hass=${this.hass}
                         .config=${this._config.hold_action}
                         .actions=${actions}
@@ -117,8 +107,7 @@ export class EntityChipEditor extends LitElement implements LovelaceChipEditor {
             return;
         }
         const target = ev.target! as EditorTarget;
-        const value =
-            target.checked ?? ev.detail.value ?? ev.detail.item?.value;
+        const value = target.checked ?? ev.detail.value ?? ev.detail.item?.value;
 
         if (!target.configValue || this._config[target.configValue] === value) {
             return;

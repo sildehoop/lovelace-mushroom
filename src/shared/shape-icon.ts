@@ -28,24 +28,26 @@ export class ShapeIcon extends LitElement {
                 --icon-color-disabled: var(--disabled-text-color);
                 --icon-animation: none;
                 --shape-color: rgba(var(--rgb-primary-text-color), 0.05);
-                --shape-color-disabled: rgba(
-                    var(--rgb-primary-text-color),
-                    0.05
-                );
+                --shape-color-disabled: rgba(var(--rgb-primary-text-color), 0.05);
                 --shape-animation: none;
+                --shape-outline-color: transparent;
+                --shape-outline-size: 1px;
                 flex: none;
             }
             .shape {
                 position: relative;
                 width: 42px;
                 height: 42px;
-                border-radius: 50%;
+                border-radius: var(--icon-border-radius);
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 background-color: var(--shape-color);
-                transition: background-color 280ms ease-in-out;
+                transition-property: background-color, outline;
+                transition-duration: 280ms;
+                transition-timing-function: ease-out;
                 animation: var(--shape-animation);
+                outline: var(--shape-outline-color) solid var(--shape-outline-size);
             }
             .shape ha-icon {
                 display: flex;
